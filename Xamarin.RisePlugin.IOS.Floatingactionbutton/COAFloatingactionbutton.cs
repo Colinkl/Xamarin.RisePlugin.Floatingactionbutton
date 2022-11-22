@@ -320,9 +320,16 @@ namespace Xamarin.RisePlugin.IOS.Floatingactionbutton
 
                             if (OpeningType == ActionOpeningType.VerticalTop ||
                                 OpeningType == ActionOpeningType.HorizontalLeft)
+                            {
                                 _mainView.InsertArrangedSubview(btn, 0);
+                                _mainView.Alignment = UIStackViewAlignment.Center;
+                                _mainView.WidthAnchor.ConstraintEqualTo((nfloat)MainButtonView.HeightRequest);
+                            }
                             else
+                            {
                                 _mainView.AddArrangedSubview(btn);
+                            }
+                                
 
                             var point = btn.Layer.AnchorPoint;
                             UIView.Animate((float)Duration / 1000, 0, UIViewAnimationOptions.TransitionNone,
